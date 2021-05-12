@@ -15,7 +15,7 @@ for text in texts:
             if isinstance(content, NavigableString) and (res := re.findall(r'(\d{2}.\d{2}): (\d*)', content)):
                 date = res[0][0]
                 value = int(res[0][1])
-                if statistics[date] < value:
+                if date.endswith('03') and statistics[date] < value:
                     statistics[date] = value
 print(sum(statistics.values()))
 pprint(statistics)
